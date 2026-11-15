@@ -1,27 +1,20 @@
-use std::io;
-use rand::Rng;
-fn main() {
-    let mut guess = String::new();
+use guess::front_house::{self,hosting};
+fn main(){
+    let hello =  hosting::echo_hello();
+    println!("{}",hello);
 
-    guess = rand::thread_rng().gen_range(1..100).to_string();
-    loop{
-        let mut input = String::new();
+    let s= String::from("hello,world");
 
-        println!("请输入一个数！：{}",&mut input);
+    let  hello_2 = &s[0..4];
 
-        io::stdin()
-        .read_line(&mut input)
-        .expect("读取失败！");
+    let meal = front_house::Appetizer::Salad;
 
-        if input.trim() == guess.trim(){
-            println!("恭喜您，猜对了！");
-        }else if input.trim() > guess.trim() {
-            println!("您输入的数太大了！");
-        }else {
-            println!("您输入的数太小了！");
-        }
+    front_house::against(meal);
 
-        println!("您输入的数是：{}",&mut input);
-    
-    }
+    println!("{},",&hello_2);
+
+
+    println!("{}",&hello_2);
 }
+
+
